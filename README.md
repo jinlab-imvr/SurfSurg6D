@@ -10,6 +10,12 @@ _Daiyun Shen, Shuojue Yang, Chang Han Low, Qian Li, Mengya Xu, Qi Dou, Yueming J
 
 ---
 
+## To-Dos
+
+* [X] Full dataset upload
+* [X] Training & Inference Code release
+
+
 ##  Overview
 
 ![SurfSurg6D architecture](Figures/main_fig_v7.png)
