@@ -12,7 +12,7 @@ _Daiyun Shen, Shuojue Yang, Chang Han Low, Qian Li, Mengya Xu, Qi Dou, Yueming J
 
 ##  Overview
 
-![SurfSurg6D architecture](Figures/main_fig_v7.pdf)
+![SurfSurg6D architecture](Figures/main_fig_v7.png)
 
 Surgical instrument pose estimation is important for robotic minimally invasive surgery, including autonomous robotic surgery, skill assessment, motion control, and surgical workflow standardization. However, reliable 6-DoF pose estimation remains challenging because surgical instruments are often textureless, reflective, partially occluded, and difficult to annotate with accurate 3D pose labels in real operating scenes.
 
@@ -71,13 +71,13 @@ To make the synthetic data closer to real robotic surgery, the rendering pipelin
 - **Collision checking**, avoiding physically implausible instrument-scene configurations.
 - **Lighting and background randomization**, increasing visual diversity and reducing overfitting.
 
-![SynSurg6D variation](Figures/ral_addition.pdf)
+![SynSurg6D variation](Figures/ral_addition.png)
 
 ---
 
 ## 🧠 Method
 
-![Method overview](Figures/main_fig_v7.pdf)
+![Method overview](Figures/main_fig_v7.png)
 
 SurfSurg6D follows a correspondence-based formulation. Given an RGB crop of a surgical instrument, the framework predicts dense image embeddings and matches them with 3D surface embeddings from the instrument model.
 
@@ -160,11 +160,11 @@ For 2D projection evaluation:
 
 ## Case Studies
 
-![Pose estimation examples](Figures/pose_pic.pdf)
+![Pose estimation examples](Figures/pose_pic.png)
 
 The supplementary video demonstrates SurfSurg6D under challenging real surgical conditions, including serious occlusion and strong reflection. Compared with Surfemb and FoundPose, SurfSurg6D shows more stable and robust pose estimation in these difficult frames.
 
-![SurgPose keypoint projection](Figures/surgpose_2.pdf)
+![SurgPose keypoint projection](Figures/surgpose_2.png)
 
 ---
 
