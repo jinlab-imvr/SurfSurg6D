@@ -186,41 +186,6 @@ We provide a supplementary video demo for the SurfSurg6D pipeline.
 
 ---
 
-## Running SurfSurg6D
-
-After the official code release, the expected workflow will include:
-
-1. Preparing RGB images, instrument CAD models, camera intrinsics, and bounding boxes.
-2. Training the image recognition network and instrument latent field.
-3. Constructing 2D-3D correspondences from predicted dense embeddings.
-4. Solving the final 6-DoF pose from the matched correspondences.
-5. Evaluating pose results using RE, TE, ADD-10, Avg Acc. 0–5 mm, Dice, or OKS-based mAP.
-
-Example command format:
-
-```bash
-python train.py \
-  --config configs/surfsurg6d.yaml \
-  --data_root /path/to/dataset \
-  --cad_root /path/to/cad_models \
-  --output_dir outputs/surfsurg6d
-```
-
-Inference example:
-
-```bash
-python infer.py \
-  --config configs/surfsurg6d.yaml \
-  --image_dir /path/to/images \
-  --cad_root /path/to/cad_models \
-  --checkpoint /path/to/checkpoint.pth \
-  --output_dir outputs/predictions
-```
-
-> The exact script names and arguments will follow the official code release.
-
----
-
 ##  Expected Dataset Format
 
 SurfSurg6D / SynSurg6D can be organized in a BOP-style or project-specific format containing:
