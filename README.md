@@ -84,7 +84,7 @@ The supplementary video demonstrates SurfSurg6D under challenging real surgical 
 
 ---
 
-We provide a simple demo for the SurfSurg6D performance. It illustrates that our methods can be more robust for occlusion scenes.
+We provide a simple demo for the SurfSurg6D performance. It illustrates our method's robustness for occlusion scenes.
 
 ![til](./Supplementary/output.gif)
 
