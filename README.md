@@ -75,33 +75,12 @@ To make the synthetic data closer to real robotic surgery, the rendering pipelin
 
 ---
 
-## 🧠 Method
+## Method
 
 ![Method overview](Figures/main_fig_v7.png)
 
 SurfSurg6D follows a correspondence-based formulation. Given an RGB crop of a surgical instrument, the framework predicts dense image embeddings and matches them with 3D surface embeddings from the instrument model.
 
-### Framework Components
-
-1. **Instrument Latent Field**  
-   A SIREN-based implicit MLP maps normalized 3D surface points to latent embeddings.
-
-2. **Image Recognition Network**  
-   A ResNet18 + U-Net image network predicts dense per-pixel embeddings and an instrument mask score.
-
-3. **Contrastive Correspondence Learning**  
-   Positive pixel-surface pairs are pulled together in the embedding space, while negative pairs are pushed apart using InfoNCE-style supervision.
-
-4. **Hard Negative Pair Mining**  
-   Surface points that are locally similar but geometrically distinct are given stronger penalties to improve discrimination on textureless and symmetric-like regions.
-
-5. **Localized Embedding Consistency**  
-   Neighboring surface points are regularized to have locally consistent embeddings, making the learned surface representation smoother and more geometry-aware.
-
-6. **Pose Estimation**  
-   During inference, 2D-3D correspondences are constructed by matching image embeddings to surface embeddings. The final 6-DoF pose is estimated from these correspondences.
-
----
 
 ##  Experimental Evaluation
 
@@ -132,32 +111,6 @@ For 2D projection evaluation:
 - Compared with Surfemb, SurfSurg6D improves ADD-10 accuracy on SurgRIPE by introducing hard negative mining and consistency regularization.
 - On EndoVis2018 and SurgPose, SynSurg6D improves generalization to real surgical scenes.
 
-### 2D Projection Results
-
-| Setting | Method | Dice on EndoVis2018 ↑ | mAP on SurgPose ↑ |
-|---|---:|---:|---:|
-| Zero-shot | MegaPose | 0.5463 | 0.0030 |
-| Zero-shot | FoundPose | 0.7110 | 0.0976 |
-| Real | MRC-Net | 0.7168 | 0.2678 |
-| Real | GDR-Net | 0.7322 | 0.4693 |
-| Real | Surfemb | 0.7566 | 0.5797 |
-| Real | **SurfSurg6D** | 0.7555 | **0.6756** |
-| Syn + Real | MRC-Net | 0.7550 | 0.6006 |
-| Syn + Real | GDR-Net | 0.7653 | 0.5201 |
-| Syn + Real | Surfemb | 0.7753 | 0.6385 |
-| Syn + Real | **SurfSurg6D** | **0.7952** | **0.6897** |
-
-### Ablation Study
-
-| Method | RE ↓ | TE ↓ | ADD-10 Acc. ↑ |
-|---|---:|---:|---:|
-| Surfemb | 7.22° | 3.38 mm | 41.56% |
-| + Hard Negative Mining | 7.03° | 3.20 mm | 42.06% |
-| + Consistency Loss | 6.71° | 3.30 mm | 42.38% |
-| **SurfSurg6D** | **6.42°** | **3.20 mm** | **42.89%** |
-
----
-
 ## Case Studies
 
 ![Pose estimation examples](Figures/pose_pic.png)
@@ -168,53 +121,44 @@ The supplementary video demonstrates SurfSurg6D under challenging real surgical 
 
 ---
 
-## 🎥 Video Demo
+We provide a simple demo for the SurfSurg6D performance. It illustrates that our methods can be more robust for occlusion scenes.
 
-We provide a supplementary video demo for the SurfSurg6D pipeline.
-
-<p align="center">
-  <video width="90%" controls>
-    <source src="Supplementary/demo.mp4" type="video/mp4">
-  </video>
-</p>
-
-<p align="center">
-  <em>Demo of SurfSurg6D for surgical instrument pose estimation, including motivation and qualitative comparison with Surfemb and FoundPose in real surgical scenes.</em>
-</p>
-
-> Minimum requirement: the video can be played by any MP4 player, such as VLC Media Player on Windows or macOS.
+![til](./Supplementary/out.gif)
 
 ---
 
-##  Expected Dataset Format
+##  Dataset Format
 
-SurfSurg6D / SynSurg6D can be organized in a BOP-style or project-specific format containing:
+SynSurg6D is organized in a BOP-style format containing:
 
 ```text
-dataset_root/
-├── rgb/
-│   ├── 000000.png
-│   ├── 000001.png
-│   └── ...
-├── depth/
-│   ├── 000000.png
-│   ├── 000001.png
-│   └── ...
-├── mask/
-│   ├── 000000.png
-│   ├── 000001.png
-│   └── ...
-├── normal/
-│   ├── 000000.png
-│   ├── 000001.png
-│   └── ...
-├── scene_camera.json
-├── scene_gt.json
-├── scene_gt_info.json
-└── models/
-    ├── obj_000001.ply
-    ├── obj_000002.ply
-    └── ...
+|──dataset_root/
+|  ├── rgb/
+|  │   ├── 000000.png
+|  │   ├── 000001.png
+|  │   └── ...
+|  ├── depth/
+|  │   ├── 000000.png
+|  │   ├── 000001.png
+|  │   └── ...
+|  ├── mask/
+|  │   ├── 000000.png
+|  │   ├── 000001.png
+|  │   └── ...
+|  ├── mask_visib/
+|  │   ├── 000000_000000.png
+|  │   ├── 000000_000001.png
+|  │   └── ...
+|  ├── normal/
+|  │   ├── 000000.png
+|  │   ├── 000001.png
+|  │   └── ...
+|  ├── scene_camera.json
+|  ├── scene_gt.json
+|  ├── scene_gt_info.json
+|──models/
+|  ├── 000000.ply   
+|
 ```
 
 The essential inputs for pose training and evaluation are:
@@ -246,6 +190,5 @@ If you find this work useful, please cite our paper:
 ---
 
 ## Acknowledgement
-
 This work was supported by Ministry of Education Tier 2 grant, Singapore (T2EP20224-0028), and Ministry of Education Tier 1 grant, Singapore (23-0651-P0001).
 
