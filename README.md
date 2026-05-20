@@ -60,16 +60,8 @@ SynSurg6D contains six robotic surgical instruments:
 5. Biopsy Forceps
 6. Permanent Cautery Spatula
 
-### Realistic Surgical Configuration Constraints
-
-To make the synthetic data closer to real robotic surgery, the rendering pipeline applies surgical configuration constraints, including:
-
-- **Remote-center-of-motion (RCM) constraint**, requiring the instrument shaft to pass through a fixed trocar point.
-- **Tool-tip depth constraint**, keeping the tip within a 30–100 mm depth range from the local tissue surface.
-- **Articulated wrist modeling**, where distal wrist and clip angles are sampled according to surgical instrument kinematic structure.
-- **Visibility filtering**, rejecting samples where the instrument leaves the field of view or the wrist visibility is too low.
-- **Collision checking**, avoiding physically implausible instrument-scene configurations.
-- **Lighting and background randomization**, increasing visual diversity and reducing overfitting.
+### Realistic Surgical Dataset Sample
+A SynSurg6D variation example. Instruments/backgrounds/lighting/poses are varied when maintaining certain clinical constraints. See details in our paper.
 
 ![SynSurg6D variation](Figures/ral_addition.png)
 
@@ -81,35 +73,6 @@ To make the synthetic data closer to real robotic surgery, the rendering pipelin
 
 SurfSurg6D follows a correspondence-based formulation. Given an RGB crop of a surgical instrument, the framework predicts dense image embeddings and matches them with 3D surface embeddings from the instrument model.
 
-
-##  Experimental Evaluation
-
-SurfSurg6D is evaluated on three surgical benchmark datasets:
-
-- **SurgRIPE** – Real surgical instrument pose estimation with 6-DoF pose annotations.
-- **EndoVis2018** – Real surgical scenes with instrument segmentation masks.
-- **SurgPose** – Surgical instrument keypoint annotations for 2D projection evaluation.
-
-### Metrics
-
-For 6-DoF pose estimation on SurgRIPE:
-
-- **Rotation Error (RE)**
-- **Translation Error (TE)**
-- **ADD-10 Accuracy**
-- **Average Accuracy from 0–5 mm**
-
-For 2D projection evaluation:
-
-- **Dice score** on EndoVis2018
-- **mAP over OKS** on SurgPose
-
-### Main Findings
-
-- SynSurg6D consistently improves multiple pose estimation methods when combined with real training data.
-- SurfSurg6D achieves robust pose estimation under occlusion and reflection.
-- Compared with Surfemb, SurfSurg6D improves ADD-10 accuracy on SurgRIPE by introducing hard negative mining and consistency regularization.
-- On EndoVis2018 and SurgPose, SynSurg6D improves generalization to real surgical scenes.
 
 ## Case Studies
 
@@ -191,4 +154,4 @@ If you find this work useful, please cite our paper:
 
 ## Acknowledgement
 This work was supported by Ministry of Education Tier 2 grant, Singapore (T2EP20224-0028), and Ministry of Education Tier 1 grant, Singapore (23-0651-P0001).
-
+The dataset generation builds upon the [EndoNeRF dataset](https://github.com/med-air/endonerf), [EndoSurf](https://github.com/Ruyi-Zha/endosurf), and [TemplatePose](https://github.com/nv-nguyen/template-pose). The pose estimation framework is inspired by [SurfEmb](https://github.com/rasmushaugaard/surfemb). We sincerely thank the authors for their excellent work and open-source contributions.
