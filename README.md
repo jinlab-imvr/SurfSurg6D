@@ -86,7 +86,7 @@ The supplementary video demonstrates SurfSurg6D under challenging real surgical 
 
 We provide a simple demo for the SurfSurg6D performance. It illustrates that our methods can be more robust for occlusion scenes.
 
-![til](./Supplementary/out.gif)
+![til](./Supplementary/output.gif)
 
 ---
 
@@ -121,7 +121,7 @@ SynSurg6D is organized in a BOP-style format containing:
 |  ├── scene_gt_info.json
 |──models/
 |  ├── 000000.ply   
-|
+|  |── 000001.ply  #different instrument parts
 ```
 
 The essential inputs for pose training and evaluation are:
