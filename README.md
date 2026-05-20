@@ -12,8 +12,8 @@ _Daiyun Shen, Shuojue Yang, Chang Han Low, Qian Li, Mengya Xu, Qi Dou, Yueming J
 
 ## To-Dos
 
-* [X] Full dataset upload
-* [X] Training & Inference Code release
+*  Full dataset upload
+*  Training & Inference Code release
 
 
 ##  Overview
