@@ -138,7 +138,7 @@ The essential inputs for pose training and evaluation are:
 - 6-DoF pose annotations
 - Object masks or bounding boxes
 - Optional depth / normal / segmentation modalities for synthetic data analysis
-To reproduce SurgRIPE results, please visit https://www.synapse.org/Synapse:syn51471789 to ask access for SurgRIPE data and organize them in the format above.
+To reproduce SurgRIPE results, please visit https://www.synapse.org/Synapse:syn51471789 to ask access for SurgRIPE full dataset and organize them in the format above.
 ---
 
 ##  Citation
