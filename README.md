@@ -12,7 +12,7 @@ _Daiyun Shen, Shuojue Yang, Chang Han Low, Qian Li, Mengya Xu, Qi Dou, Yueming J
 
 ## To-Dos
 
-*  Full dataset upload (Part of it have been uploaded to https://huggingface.co/datasets/Daiyun/SurfSurg6D)
+*  Full dataset upload (Part of it has been uploaded to https://huggingface.co/datasets/Daiyun/SurfSurg6D)
 * Code release
 
 
