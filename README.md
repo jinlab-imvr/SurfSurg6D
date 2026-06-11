@@ -2,7 +2,7 @@
 
 _Daiyun Shen, Shuojue Yang, Chang Han Low, Qian Li, Mengya Xu, Qi Dou, Yueming Jin_
 
-[![IEEE RA-L 2026](https://img.shields.io/badge/IEEE-RA--L%202026-blue)]()
+[![IEEE RA-L 2026](https://img.shields.io/badge/IEEE-RA--L%202026-blue)](https://arxiv.org/html/2605.25598v1)
 
  **Accepted by IEEE Robotics and Automation Letters (RA-L), 2026**  
  Project page / code: https://github.com/StackingDataYeti/SurfSurg6D  
