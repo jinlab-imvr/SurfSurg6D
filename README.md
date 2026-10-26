@@ -5,15 +5,15 @@ _Daiyun Shen, Shuojue Yang, Chang Han Low, Qian Li, Mengya Xu, Qi Dou, Yueming J
 [![IEEE RA-L 2026](https://img.shields.io/badge/IEEE-RA--L%202026-blue)](https://arxiv.org/html/2605.25598v1)
 
  **Accepted by IEEE Robotics and Automation Letters (RA-L), 2026**  
- Project page / code: https://github.com/StackingDataYeti/SurfSurg6D  
- Code and dataset will be released at the project repository.
+ Project page / code: https://github.com/jinlab-imvr/SurfSurg6D  
+ Core source code, the blend training entry point, and inference utilities are available in this repository. See [code usage](CODE_USAGE.md) for setup and data layout.
 
 ---
 
 ## To-Dos
 
 *  Full dataset upload (Part of it has been uploaded to https://huggingface.co/datasets/Daiyun/SurfSurg6D)
-* Code release
+* [x] Core code release (`train_blend.py`, inference, and utilities)
 
 
 ##  Overview
@@ -161,3 +161,4 @@ If you find this work useful, please cite our paper:
 ## Acknowledgement
 This work was supported by Ministry of Education Tier 2 grant, Singapore (T2EP20224-0028), and Ministry of Education Tier 1 grant, Singapore (23-0651-P0001).
 The dataset generation builds upon the [EndoNeRF dataset](https://github.com/med-air/endonerf), [EndoSurf](https://github.com/Ruyi-Zha/endosurf), and [TemplatePose](https://github.com/nv-nguyen/template-pose). The pose estimation framework is inspired by [SurfEmb](https://github.com/rasmushaugaard/surfemb). We sincerely thank the authors for their excellent work and open-source contributions.
+
