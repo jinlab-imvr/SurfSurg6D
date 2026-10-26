@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+
+/data/
+/checkpoints/
+/checckpoints/
+/run_logs/
+/eval_runs/
+/wandb/
+/joint.npy
+*.ckpt
+*.pt
+*.pth
+*.safetensors
