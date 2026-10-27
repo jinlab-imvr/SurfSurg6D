@@ -95,6 +95,11 @@ def main():
             print("dual dataset")
         else:
             data = data_real
+            data_train, data_valid = torch.utils.data.random_split(
+                data,
+                (len(data) - n_valid, n_valid),
+                generator=torch.Generator().manual_seed(0),
+            )
 
 
 
