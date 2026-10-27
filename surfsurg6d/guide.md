@@ -101,6 +101,5 @@ This requires object-0 model-frame points in root-level `joint.npy` and the foll
 | OCC | `000001` | 0–237 | 0–237 |
 | NON-OCC | `000002` | 238–610 | 0–372 |
 
-
-Results are saved in `data/results/` as `MODEL_NAME-poses.npy`, `MODEL_NAME-poses-scores.npy`, and `MODEL_NAME-metrics.json`. `add_10_accuracy` is the combined accuracy as a fraction. Separate OCC/NON-OCC scores require evaluating refined poses against their matched ground truth and grouping by scene.
+The dataset split is according to the SurgRIPE dataset. Results are saved in `data/results/` as `MODEL_NAME-poses.npy`, `MODEL_NAME-poses-scores.npy`, and `MODEL_NAME-metrics.json`. `add_10_accuracy` is the combined accuracy as a fraction. Separate OCC/NON-OCC scores require evaluating refined poses against their matched ground truth and grouping by scene.
 
